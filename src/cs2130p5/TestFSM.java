@@ -38,10 +38,22 @@ public class TestFSM {
                     {3,0,1}};
 
     int[]AS3 = {0, 0, 0, 1, 0, 0};
+    
+    // Language: strings that contain the substring rqr or end with pp.
+    String A4 = "pqr";
+    int[][] ST4 =  {{4,0,1},
+                    {4,2,1},
+                    {4,0,3},
+                    {3,3,3},
+                    {5,0,1},
+                    {5,0,1}};
+
+    int[]AS4 = {0, 0, 0, 1, 0, 1};
 
     FSM L1 = new FSM (A1, ST1, AS1);
     FSM L2 = new FSM (A2, ST2, AS2);
     FSM L3 = new FSM (A3, ST3, AS3);
+    FSM L4 = new FSM (A4, ST4, AS4);
 
     String inString1a = "aabaaaa";
     String inString1b = "aaabaaaa";
@@ -60,6 +72,12 @@ public class TestFSM {
     String inString3c = "yzxyzyyz";
     String inString3d = "zzyzxyxx";
     String inString3e = "yxzxxyzy";
+    
+    String inString4a = "qqpprqrr";
+    String inString4b = "pqrprppq";
+    String inString4c = "rpqrrqpp";
+    String inString4d = "pqpprpqq";
+    String inString4e = "qrpprqrp";
 
     boolean accept1a = L1.validString(inString1a);
     boolean accept1b = L1.validString(inString1b);
@@ -78,8 +96,14 @@ public class TestFSM {
     boolean accept3c = L3.validString(inString3c);
     boolean accept3d = L3.validString(inString3d);
     boolean accept3e = L3.validString(inString3e);
+    
+    boolean accept4a = L4.validString(inString4a);
+    boolean accept4b = L4.validString(inString4b);
+    boolean accept4c = L4.validString(inString4c);
+    boolean accept4d = L4.validString(inString4d);
+    boolean accept4e = L4.validString(inString4e);
 
-    System.out.println("L1:");
+    System.out.println("L1: strings that contain an odd number of a's and exactly one b.");
     System.out.println("String: " + inString1a + "   Accept?  " + accept1a);
     System.out.println("String: " + inString1b + "   Accept?  " + accept1b);
     System.out.println("String: " + inString1c + "   Accept?  " + accept1c);
@@ -87,7 +111,7 @@ public class TestFSM {
     System.out.println("String: " + inString1e + "   Accept?  " + accept1e);
     addLine();
     
-    System.out.println("L2:");
+    System.out.println("L2: strings of length 3 or less that have more 0's than 1's.");
     System.out.println("String: " + inString2a + "   Accept?  " + accept2a);
     System.out.println("String: " + inString2b + "   Accept?  " + accept2b);
     System.out.println("String: " + inString2c + "   Accept?  " + accept2c);
@@ -95,14 +119,21 @@ public class TestFSM {
     System.out.println("String: " + inString2e + "   Accept?  " + accept2e);
     addLine();
     
-    System.out.println("L3:");
+    System.out.println("L3: strings that contain xyx or zyz.");
     System.out.println("String: " + inString3a + "   Accept?  " + accept3a);
     System.out.println("String: " + inString3b + "   Accept?  " + accept3b);
     System.out.println("String: " + inString3c + "   Accept?  " + accept3c);
     System.out.println("String: " + inString3d + "   Accept?  " + accept3d);
     System.out.println("String: " + inString3e + "   Accept?  " + accept3e);
     addLine();
-
+    
+    System.out.println("L4: strings that contain the substring rqr or end with pp.");
+    System.out.println("String: " + inString4a + "   Accept?  " + accept4a);
+    System.out.println("String: " + inString4b + "   Accept?  " + accept4b);
+    System.out.println("String: " + inString4c + "   Accept?  " + accept4c);
+    System.out.println("String: " + inString4d + "   Accept?  " + accept4d);
+    System.out.println("String: " + inString4e + "   Accept?  " + accept4e);
+    addLine();
 
   } // end main
 
