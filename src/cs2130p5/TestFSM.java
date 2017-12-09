@@ -16,6 +16,7 @@ public class TestFSM {
 
     int[] AS1 = {0,1,0,0,0};
     
+    // Language: strings of length 3 or less that have more 0's than 1's.
     String A2 = "01";
     int[][] ST2 =  {{4,3},
                     {6,6},
@@ -26,9 +27,21 @@ public class TestFSM {
                     {6,6}};
 
     int[]AS2 = {0, 1, 0, 0, 1, 1, 0};
+    
+    // Language: strings that contain xyx or zyz.
+    String A3 = "xyz";
+    int[][] ST3 =  {{4,0,1},
+                    {4,2,1},
+                    {4,0,3},
+                    {3,3,3},
+                    {4,5,1},
+                    {3,0,1}};
+
+    int[]AS3 = {0, 0, 0, 1, 0, 0};
 
     FSM L1 = new FSM (A1, ST1, AS1);
     FSM L2 = new FSM (A2, ST2, AS2);
+    FSM L3 = new FSM (A3, ST3, AS3);
 
     String inString1a = "aabaaaa";
     String inString1b = "aaabaaaa";
@@ -41,6 +54,12 @@ public class TestFSM {
     String inString2c = "010";
     String inString2d = "101";
     String inString2e = "0100";
+    
+    String inString3a = "xyzyzyzy";
+    String inString3b = "xzzxzxyy";
+    String inString3c = "yzxyzyyz";
+    String inString3d = "zzyzxyxx";
+    String inString3e = "yxzxxyzy";
 
     boolean accept1a = L1.validString(inString1a);
     boolean accept1b = L1.validString(inString1b);
@@ -53,6 +72,12 @@ public class TestFSM {
     boolean accept2c = L2.validString(inString2c);
     boolean accept2d = L2.validString(inString2d);
     boolean accept2e = L2.validString(inString2e);
+    
+    boolean accept3a = L3.validString(inString3a);
+    boolean accept3b = L3.validString(inString3b);
+    boolean accept3c = L3.validString(inString3c);
+    boolean accept3d = L3.validString(inString3d);
+    boolean accept3e = L3.validString(inString3e);
 
     System.out.println("L1:");
     System.out.println("String: " + inString1a + "   Accept?  " + accept1a);
@@ -68,6 +93,14 @@ public class TestFSM {
     System.out.println("String: " + inString2c + "   Accept?  " + accept2c);
     System.out.println("String: " + inString2d + "   Accept?  " + accept2d);
     System.out.println("String: " + inString2e + "   Accept?  " + accept2e);
+    addLine();
+    
+    System.out.println("L3:");
+    System.out.println("String: " + inString3a + "   Accept?  " + accept3a);
+    System.out.println("String: " + inString3b + "   Accept?  " + accept3b);
+    System.out.println("String: " + inString3c + "   Accept?  " + accept3c);
+    System.out.println("String: " + inString3d + "   Accept?  " + accept3d);
+    System.out.println("String: " + inString3e + "   Accept?  " + accept3e);
     addLine();
 
 
